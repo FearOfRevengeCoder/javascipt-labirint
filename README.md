@@ -23,4 +23,4 @@
 [FearOfRevenge]
 
 ### Live Site;
-fearofrevengecoder.github.io/javascipt-labirint/
+(https://fearofrevengecoder.github.io/javascipt-labirint/)
