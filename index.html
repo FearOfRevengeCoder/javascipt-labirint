@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title lang="ru">Платформер</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container" role="main">
+        <canvas id="canvas" width="800" height="600"></canvas>
+        <div id="console-toggle" class="console-toggle">
+        </div>
+        <div id="console">
+            <div id="console-header">Console~</div>
+            <div id="console-output" contenteditable="false"></div>
+            <input id="console-input" type="text" placeholder="Enter the command..." autocomplete="off">
+        </div>
+        <div id="interlevel-screen" class="interlevel-screen">
+            <div id="interlevel-text"></div>
+            <button id="interlevel-button"></button>
+        </div>
+    </div>
+    <script src="game.js"></script>
+    <script src="console.js"></script>
+</body>
+</html>
