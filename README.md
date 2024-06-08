@@ -22,4 +22,5 @@
 
 [FearOfRevenge]
 
-Эта игра не только предоставляет забавное времяпрепровождение, но и служит отличным учебным ресурсом для тех, кто хочет углубиться в мир разработки игр на JavaScript.
+###Live Site
+[(https://fearofrevengecoder.github.io/javascipt-labirint/)]
