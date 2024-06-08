@@ -1,0 +1,294 @@
+:root {
+  --background-color: #303030;
+  --text-color: #fff;
+  --accent-color: #4caf50;
+  --error-color: #f44336;
+  --warning-color: #ff9800;
+  --box-shadow-color: rgba(0, 0, 0, 0.2);
+  --console-background-color: rgba(51, 51, 51, 0.4); /* темный фон консоли */
+  --console-header-background-color: rgba(68, 68, 68, 0.493); /* темный фон заголовка */
+  --console-output-background-color: rgb(51, 51, 51); /* темный фон вывода */
+  --console-input-background-color: rgba(68, 68, 68, 0.493); /* темный фон ввода */
+  --console-focus-color: rgba(76, 175, 80, 0.26);
+  --console-collapsed-background-color: rgba(23, 155, 63, 0.377);
+  --console-collapsed-box-shadow-color: rgba(5, 197, 31, 0.5);
+  --font-family: 'Roboto', sans-serif;
+  --console-font-family: 'Roboto Mono', monospace;
+
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--font-family);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#game-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  elevation: 2;
+  box-shadow: 0 2px 4px var(--box-shadow-color);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+canvas {
+  border-radius: 25px;
+  border: 2px solid var(--text-color);
+  box-shadow: 0 0 15px var(--box-shadow-color);
+  margin-bottom: 20px;
+  animation: neonGlow 2s ease-in-out infinite;
+}
+
+@keyframes neonGlow {
+  0% {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  }
+
+  50% {
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+  }
+
+  100% {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  }
+}
+
+#console {
+  border-radius: 10px;
+  box-shadow: 0 2px 4px var(--box-shadow-color);
+  background-color: var(--console-background-color);
+  color: var(--text-color);
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 300px;
+  height: 250px;
+  padding: 10px;
+  overflow: hidden;
+  font-family: var(--console-font-family);
+  elevation: 4;
+}
+
+#console-header {
+  background-color: var(--console-header-background-color);
+  color: #fff;
+  font-size: 14px;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  border-radius: 10px 10px 0 0;
+}
+
+#console-output {
+  padding: 15px;
+  overflow: auto;
+  height: 150px;
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
+  color: rgb(255, 255, 255);
+  background-color: var(--console-output-background-color);
+}
+
+#console-input {
+  align-items: center;
+  background-color: var(--accent-color);
+  padding: 10px;
+  width: 95%;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: var(--console-input-background-color);
+  font-family: var(--console-font-family);
+}
+
+#console-input:focus {
+  outline: none;
+  box-shadow: 0 0 10px var(--accent-color);
+  background-color: var(--console-focus-color);
+}
+.console-error {
+  color: var(--error-color);
+}
+
+.console-warning {
+  color: var(--warning-color);
+}
+
+#console.collapsed {
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  border-radius: 50%;
+  background-color: var(--console-collapsed-background-color);
+  cursor: pointer;
+  elevation: 2;
+}
+#console.colapsed:focus {
+  box-shadow: 0 0 10px var(--console-collapsed-box-shadow-color)
+}
+
+#console.collapsed #console-header,
+#console.collapsed #console-output,
+#console.collapsed #console-input {
+  display: none;
+}
+
+#console.collapsed::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-image: url("console.png");
+  background-size: contain;
+  background-position: center;
+}
+
+#console-toggle-button {
+  display: none;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 30px;
+  height: 30px;
+  background-color: #333;
+  border-radius: 50%;
+  cursor: pointer;
+  elevation: 2;
+}
+
+#console-toggle-button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-image: url("console.png");
+  background-size: contain;
+  background-position: center;
+}
+
+#console {
+  transition: width 0.3s, height 0.3s, padding 0.3s;
+}
+
+#console.collapsed {
+  transition: width 0.3s, height 0.3s, padding 0.3s;
+}
+
+#console-input:focus {
+  transition: box-shadow 0.3s;
+}
+
+
+#game-container {
+  elevation: 2;
+}
+
+#console {
+  elevation: 4;
+}
+
+#console.collapsed {
+  elevation: 2;
+}
+
+#console-toggle-button {
+  elevation: 2;
+}
+
+
+.interlevel-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.interlevel-screen.show {
+  display: flex;
+}
+
+.interlevel-text {
+  font-size: 24px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.interlevel-button {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.interlevel-button:hover {
+  background-color: #3e8e41;
+}
+
+.fade-out {
+  animation: fadeOut 2s forwards;
+}
+
+.fade-in {
+  animation: fadeIn 2s forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.main-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+#start-game-button {
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: #fff;
+  cursor: pointer;
+}
+
+#start-game-button:hover {
+  background-color: #3e8e41;
+}
