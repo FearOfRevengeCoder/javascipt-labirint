@@ -149,7 +149,7 @@ canvas {
   transform: translate(-50%, -50%);
   width: 20px;
   height: 20px;
-  background-image: url("console.png");
+   background-image: url("https://cdn.glitch.global/72be188d-8c24-4cf4-b2c4-46139a8ac2fa/console.png?v=1717781540324");/*использовать для сайтов,а ианче console.png*/
   background-size: contain;
   background-position: center;
 }
@@ -175,7 +175,7 @@ canvas {
   transform: translate(-50%, -50%);
   width: 20px;
   height: 20px;
-  background-image: url("console.png");
+   background-image: url("https://cdn.glitch.global/72be188d-8c24-4cf4-b2c4-46139a8ac2fa/console.png?v=1717781540324");/*использовать для сайтов,а ианче console.png*/
   background-size: contain;
   background-position: center;
 }
